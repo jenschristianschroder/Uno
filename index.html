@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f2e9">
+<meta name="description" content="A little friendly rivalry. A phone-first, UNO-style card game for friends. No accounts, just a room code.">
+<meta name="referrer" content="no-referrer">
+<title>Last Card — A little friendly rivalry.</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./style.css">
+<script defer src="./vendor/peerjs.min.js"></script>
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./" aria-label="Last Card home"><span class="brand-icon" aria-hidden="true">▱</span> last card<span class="brand-dot">.</span></a><button id="rules-button" class="text-button">How to play <span aria-hidden="true">↗</span></button></header>
+<main id="app"></main>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<dialog id="rules"><div class="dialog-head"><span class="eyebrow">THE HOUSE RULES</span><button data-close class="icon-button" aria-label="Close rules">×</button></div><h2>One card closer.</h2><p>Match the top card’s <b>color or symbol</b>. First to empty their hand wins.</p><div class="rule-grid"><div><b>↷ Skip</b><p>The next player misses a turn.</p></div><div><b>⇄ Reverse</b><p>Switch direction. With two players, you go again.</p></div><div><b>+2 / +4</b><p>The next player draws and misses a turn. No stacking.</p></div><div><b>✦ Wild</b><p>Pick a color. Play +4 only if you have no card in the current color.</p></div></div><p>Draw one if you need to. You may play that drawn card or pass. An unplayable draw ends your turn.</p><p><b>Down to two cards?</b> Tap “Call UNO”, then play. Forget to call before leaving one card and you draw two automatically.</p><p class="fine">A relaxed UNO-style variant: number-card starts, no +4 challenges, and single-round wins. Unofficial; not affiliated with Mattel.</p><hr><h3>Your table, your phones.</h3><p class="fine">No accounts or game database. The host saves the round on their phone; guests save a seat token. A public PeerJS service and Google STUN help connect phones and see connection metadata. Game messages travel through encrypted WebRTC connections. Hosting and connection providers may keep access logs.</p><p class="fine">Keep the game open and your screen awake. If the host leaves, play pauses until they return. Some mobile or restricted networks will not connect without an additional TURN relay. Share the code only with your group.</p><button data-close class="button primary full">Got it. Let’s play.</button></dialog>
+<dialog id="color-dialog"><div class="dialog-head"><span class="eyebrow">WILD CARD</span><button data-close class="icon-button" aria-label="Cancel color choice">×</button></div><h2>Make it your color.</h2><p>Choose the color for the next player.</p><div class="color-grid"><button data-color="red" class="red">●<span>Red</span></button><button data-color="yellow" class="yellow">◆<span>Yellow</span></button><button data-color="green" class="green">▲<span>Green</span></button><button data-color="blue" class="blue">■<span>Blue</span></button></div></dialog>
+<dialog id="leave-dialog"><h2>Leave the table?</h2><p id="leave-copy"></p><button id="confirm-leave" class="button primary full">Leave & keep my save</button><button data-close class="button secondary full">Stay here</button></dialog>
+<noscript>This game needs JavaScript enabled in your browser.</noscript>
+</body>
+</html>
